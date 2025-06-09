@@ -34,6 +34,31 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            {
+              "fontFamily": "Inter",
+              "fontDefinitions": [
+                {
+                  "path": "./assets/fonts/Inter-Regular.ttf",
+                  "weight": "normal"
+                }
+              ]
+            },
+            {
+              "fontFamily": "Inter-Bold",
+              "fontDefinitions": [
+                {
+                  "path": "./assets/fonts/Inter-Bold.ttf",
+                  "weight": "bold"
+                }
+              ]
+            }
+          ]
+        }
       ]
     ],
     "experiments": {
