@@ -31,7 +31,7 @@ const MdiButton = ({ label, rowView, icon, boxClass }: ButtonProps) => {
 
   return (
     <TouchableOpacity
-      className={`bg-gray-700 rounded-[14px] w-full drop-shadow-lg flex flex-wrap justify-start flex-row py-[10px] px-[19px] outline-none space-x-2 ${
+      className={`bg-primary-gray-600 rounded-[14px] w-full shadow-lg flex flex-nowrap justify-start flex-row py-[10px] px-[19px] outline-none space-x-2 ${
         rowView ? "flex-col justify-center" : boxClass ?? ""
       }`}
     >
@@ -40,8 +40,8 @@ const MdiButton = ({ label, rowView, icon, boxClass }: ButtonProps) => {
       ) : null}
       {label && (
         <Text
-          className="text-base text-white float-left"
-          style={{ fontFamily: "Inter" }}
+          className="text-base text-white whitespace-nowrap truncate"
+          style={{ fontFamily: "Inter-Bold" }}
         >
           {label}
         </Text>
