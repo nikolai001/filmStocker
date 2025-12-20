@@ -1,21 +1,21 @@
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import * as Font from "expo-font";
 import { useEffect, useState } from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { CarrouselType } from "../enums/Carrousel";
 
-interface contentContainer {
+interface Container {
   name: string;
   image: string;
   amount: number;
 }
 
-type props = {
-  data: contentContainer;
+type Props = {
+  data: Container;
   carrouselType: CarrouselType;
 };
 
-const ContentContainer = ({ data, carrouselType }: props) => {
+const ContentContainer = ({ data, carrouselType }: Props) => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   useEffect(() => {
@@ -66,32 +66,32 @@ const ContentContainer = ({ data, carrouselType }: props) => {
 
   return (
     <TouchableOpacity className="px-3 space-y-3 w-5/12 bg-primary-gray-600 flex flex-col rounded-[14px] pb-2 shadow-md max-w-44 min-w-32">
-      <div
+      <View
         id="label"
         className="w-1/5 max-w-8 min-w-7 aspect-square bg-primary-yellow-500 relative -left-3 top-0 rounded-tl-[14px] rounded-br-[14px] flex justify-center items-center"
       >
         <MaterialCommunityIcons color="#fff" size={15} name="film" />
-      </div>
+      </View>
       <img
         className="w-3/4 aspect-square object-contain mx-auto my-auto pointer-events-none"
         src={data.image + "gagagea"}
       />
-      <div className="mt-auto mb-2 flex flex-col">
-        <Text className="text-white truncate">{data.name}</Text>
-        <div className="flex items-center">
-          <span className={`truncate text-xs ${getTextColor()}`}>
+      <View className="mt-auto mb-2 flex flex-col">
+        <Text className="text-white truncate text-center">{data.name}</Text>
+        <View className="flex items-center">
+          <Text className={`truncate text-xs ${getTextColor()}`}>
             {data.amount +
               (carrouselType === CarrouselType.Expired
                 ? " rolls expiring soon"
                 : " rolls used this month")}
-          </span>
+          </Text>
           {carrouselType === CarrouselType.Expired ? (
-            <span
+            <Text
               className={`w-2 aspect-square rounded-full ml-3 ${getBgColor()}`}
             />
           ) : null}
-        </div>
-      </div>
+        </View>
+      </View>
     </TouchableOpacity>
   );
 };

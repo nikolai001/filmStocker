@@ -4,19 +4,19 @@ import { Text, View } from "react-native";
 import { CarrouselType } from "../enums/Carrousel";
 import ContentContainer from "./ContentContainer";
 
-interface contentContainer {
+interface Container {
   name: string;
   image: string;
   amount: number;
 }
 
-type props = {
-  data: contentContainer[];
+type Props = {
+  data: Container[];
   carrouselType: CarrouselType;
   panelClass?: string;
 };
 
-const Carrousel = ({ data, panelClass, carrouselType }: props) => {
+const Carrousel = ({ data, panelClass, carrouselType }: Props) => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   useEffect(() => {

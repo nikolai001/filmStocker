@@ -8,9 +8,16 @@ type ButtonProps = {
   rowView?: boolean;
   icon?: keyof typeof MaterialCommunityIcons.glyphMap;
   boxClass?: string;
+  onButtonPressed?: () => void;
 };
 
-const MdiButton = ({ label, rowView, icon, boxClass }: ButtonProps) => {
+const MdiButton = ({
+  label,
+  rowView,
+  icon,
+  boxClass,
+  onButtonPressed,
+}: ButtonProps) => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   useEffect(() => {
@@ -31,6 +38,7 @@ const MdiButton = ({ label, rowView, icon, boxClass }: ButtonProps) => {
 
   return (
     <TouchableOpacity
+      onPress={onButtonPressed}
       className={`bg-primary-gray-600 rounded-[14px] w-full shadow-lg flex flex-nowrap justify-start flex-row py-[10px] px-[19px] outline-none space-x-2 ${
         rowView ? "flex-col justify-center" : boxClass ?? ""
       }`}
